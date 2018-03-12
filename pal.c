@@ -42,6 +42,7 @@ char my_get_char() {
 //--------------------------------------------------
 // initialise_array
 //--------------------------------------------------
+//using a for loop to go through the array
 void initialise_array(int a[6], int num) {
 
     for (int i = 5; i >= 0 ; i--) {
@@ -53,6 +54,9 @@ void initialise_array(int a[6], int num) {
 //--------------------------------------------------
 // is_pal
 //--------------------------------------------------
+//using a loop to go through the filled array and compare the first to last and so on as it increments
+// if the count reaches 6 then it returns true and it is a palindrome
+//else it returns false
 boolean is_pal(int a[6]) {
     boolean b;// = True;
     int count=0;
@@ -75,6 +79,7 @@ boolean is_pal(int a[6]) {
 //--------------------------------------------------
 // ask_for_command
 //--------------------------------------------------
+//using the my_get_char method to equal res, then use validation to make sure it is our desired cmd
 char ask_for_command() {
     char res = ' ';
 
@@ -100,6 +105,9 @@ char ask_for_command() {
 //--------------------------------------------------
 // process_movement
 //--------------------------------------------------
+// using pointer p i can increment or decrement by one depending on the cmd
+//also increment number of moves by one for every cmd
+//
 void process_movement(int a[6], int** p_p, int* p_nm, char c){
 
 
@@ -130,6 +138,9 @@ void process_movement(int a[6], int** p_p, int* p_nm, char c){
 //--------------------------------------------------
 // print_status
 //--------------------------------------------------
+//minus the address of a[0] from the pointer address to get the amount spaces
+//use a for loop to print the numbers of the array
+//use a loop to print the number of spaces for each cmd
 void print_status(int a[6], int* p, int nm) {
 
     int space = p-&a[0];
@@ -162,6 +173,7 @@ void print_status(int a[6], int* p, int nm) {
 // user_game_palindrome
 //--------------------------------------------------
 void user_game_palindrome(int pal_num) {
+    //declare variables
     int a[6];
     char c = ' ';
     int *p = &a[0];
@@ -169,6 +181,7 @@ void user_game_palindrome(int pal_num) {
     int nm = 0;
     int *p_nm = &nm;
 
+    //call the method to fill the array with pal num
     initialise_array(a, pal_num);
 
     while(is_pal(a)!=True) {
