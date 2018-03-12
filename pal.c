@@ -132,9 +132,10 @@ void process_movement(int a[6], int** p_p, int* p_nm, char c){
 //--------------------------------------------------
 void print_status(int a[6], int* p, int nm) {
 
-    int space = 0;
+    int space = p-&a[0];
 
     printf("------ Game Status -------\n");
+    printf("Number = ");
     printf("{");
 
     int i;
@@ -144,10 +145,10 @@ void print_status(int a[6], int* p, int nm) {
     printf("}\n");
 
 
-    for (int j = 0; j <= space; j++) {
+    for (int j = 0; j < space; j++) {
         printf(" ");
     }
-
+    printf("          ");
     printf("^\n");
     printf("Num mov = ");
     printf("%d\n",nm);
