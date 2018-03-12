@@ -57,24 +57,60 @@ void initialise_array(int a[6], int num) {
 // is_pal
 //--------------------------------------------------
 boolean is_pal(int a[6]) {
-	boolean b = True;
+    boolean b = True;
 
-	return b;
+    for(int i=0;i<6;++i){
+        if (a[5-i]==a[i]){
+            b=True;
+        }
+    }
+    b=False;
+
+
+    return b;
 }
 
 //--------------------------------------------------
 // ask_for_command
 //--------------------------------------------------
 char ask_for_command() {
-	char res = ' ';
-	
-	return res;
+    char res = ' ';
+    printf("Please enter a cmd W S A D ");
+    res=my_get_char();
+
+    return res;
 }
 
 //--------------------------------------------------
 // process_movement
 //--------------------------------------------------
 void process_movement(int a[6], int** p_p, int* p_nm, char c){
+    ask_for_command();
+    c = my_get_char();
+    if (c =='w') {
+        **p_p = **p_p + 1;
+        *p_nm = *p_nm + 1;
+    }
+
+    if (c =='s') {
+        **p_p = **p_p - 1;
+        *p_nm = *p_nm + 1;
+    }
+
+    if (c =='a') {
+        *p_p = *p_p - 1;
+        *p_nm = *p_nm + 1;
+
+    }
+
+    if (c =='d') {
+        *p_p = *p_p + 1;
+        *p_nm = *p_nm + 1;
+
+    } else {
+
+
+    }
 
 }
 
@@ -83,12 +119,18 @@ void process_movement(int a[6], int** p_p, int* p_nm, char c){
 //--------------------------------------------------
 void print_status(int a[6], int* p, int nm) {
 
+    printf("%d\n",&a);
+
 }
 
 //--------------------------------------------------
 // user_game_palindrome
 //--------------------------------------------------
 void user_game_palindrome(int pal_num) {
+    int a[6];
+    int *p = &a[0];
+    int nm=0;
+    initialise_array(a, pal_num);
 
 }
 
